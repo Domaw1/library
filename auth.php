@@ -16,24 +16,66 @@ if ($currentUser) {
 </head>
 
 <body>
-    <div style="height: 100dvh" class="d-flex justify-content-center align-items-center">
-        <form action="auth-db.php" method="post" class="w-50">
-            <div class="mb-3">
-                <label for="email" class="form-label">Почта</label>
+    <div style="height: 100dvh" class="d-flex justify-content-center align-items-center" class="needs-validation">
+        <form class="w-50 needs-validation" action="auth-db.php" method="post" novalidate>
+            <div class="mb-4">
+                <label for="email" class="form-label">Пароль</label>
                 <input type="email" class="form-control" id="email" name="email" required>
+                <div class="valid-feedback">
+                    Отлично!
+                </div>
+                <div class="invalid-feedback">
+                    Введите корректную почту.
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Пароль</label>
-                <input type="password" class="form-control" id="password" name="password" required>
+            <div class="mb-4">
+                <label for="password" class="form-label">Почта</label>
+                <input type="text" class="form-control" id="password" name="password" required>
+                <div class="valid-feedback">
+                    Отлично!
+                </div>
+                <div class="invalid-feedback">
+                    Введите пароль.
+                </div>
             </div>
-            <button type="submit" class="btn btn-primary">Войти</button>
-            <div>
-                <a href="reg.php">Регистрация...</a>
+            <div class="col-12">
+                <button class="btn btn-primary" type="submit">Зарегистрироваться</button>
+                <div>
+                    <a href="reg.php">Регистрация...</a>
+                </div>
             </div>
         </form>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        (() => {
+            'use strict'
+
+            const forms = document.querySelectorAll('.needs-validation')
+
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+
+                form.addEventListener('focusout', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false);
+            })
+        })()
+    </script>
 </body>
 
 </html>
