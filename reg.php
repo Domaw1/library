@@ -71,7 +71,7 @@ if ($currentUser) {
                     }
 
                     form.classList.add('was-validated')
-                }, false)
+                })
 
                 form.addEventListener('focusout', event => {
                     if (!form.checkValidity()) {
@@ -80,7 +80,7 @@ if ($currentUser) {
                     }
 
                     form.classList.add('was-validated')
-                }, false);
+                });
             })
         })();
     </script>

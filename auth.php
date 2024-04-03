@@ -39,7 +39,7 @@ if ($currentUser) {
                 </div>
             </div>
             <div class="col-12">
-                <button class="btn btn-primary" type="submit">Зарегистрироваться</button>
+                <button class="btn btn-primary" type="submit">Войти</button>
                 <div>
                     <a href="reg.php">Регистрация...</a>
                 </div>
@@ -63,7 +63,7 @@ if ($currentUser) {
                     }
 
                     form.classList.add('was-validated')
-                }, false)
+                })
 
                 form.addEventListener('focusout', event => {
                     if (!form.checkValidity()) {
@@ -72,7 +72,7 @@ if ($currentUser) {
                     }
 
                     form.classList.add('was-validated')
-                }, false);
+                });
             })
         })()
     </script>
